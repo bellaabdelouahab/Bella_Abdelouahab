@@ -1,9 +1,12 @@
 const pug = require('pug');
-const Post=require("../models/postModel")
+const Post=require("../models/post/postModel")
 
 async function getPosts(req,res){
    //Recupérer tous les posts dans myBlogdb et envoyer index.pug au client
+   const posts=await Post.find()
+    res.render("index",{posts})
 }
+
 
 async function getPost(req,res){
     //Recupérer un post definie par son _id dans myBlogdb et envoyer post.pug au client
