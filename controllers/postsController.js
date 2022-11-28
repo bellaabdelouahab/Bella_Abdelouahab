@@ -16,7 +16,9 @@ async function getPost(req,res){
 
 async function makePost(req,res){
     // renvoyer au client editPost.pug
-    res.render("editPost")
+    // get current user authenticated
+    const user = req.session.user;
+    res.render("editPost",{user})
 }
 async function addPost(req,res){
    //Créer un nouveau post dans myBlogdb et rediriger le client vers /
@@ -26,7 +28,9 @@ async function addPost(req,res){
 async function editPost(req,res){
     //Recupérer un post definie par son _id et renvoyer au client editPost.pug avec les donnée de ce post
     const post=await Post.findById(req.params.id)
-    console.log(req.params.id);
+    // get current user authenticated
+    const user = req.session.user;
+    res.render("editPost",{post,user})
     res.render("editPost",{post})
 }
 async function updatePost(req,res){

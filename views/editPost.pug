@@ -12,7 +12,10 @@ header Notre Blog
 .blank  
 .home
   a(href='/')
-    i.icon-home
+    i.icon-home(style='font-size: 1em;color: #5f5f5f;')
+  | #{user.username}
+  a(href='/logout')
+    i.icon-signout(style='font-size: 1em;color: #5f5f5f;')
 section
   p Nouvau post
   if post
