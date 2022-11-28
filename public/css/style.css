@@ -183,7 +183,7 @@ input[type=text], select, textarea {
     transform: rotateX(90deg);
   }
 }
-h2,p{
+._h{
   text-align:center;
   margin: auto;
 }
