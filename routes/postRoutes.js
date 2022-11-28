@@ -1,11 +1,11 @@
 const express=require("express")
-const {getPosts,getPost,addPost,updatePost,editPost,deletePost }=require("../controllers/postsController")
+const {getPosts,getPost,makePost,addPost,updatePost,editPost,deletePost }=require("../controllers/postsController")
 
 const router=express.Router();
 
 // les routes post
 router.get("/",getPosts)
-router.get("/post/new",addPost)
+router.get("/post/new",makePost)
 router.post("/",addPost)
 router.get("/post/:id",getPost)
 router.get("/post/edit/:id",editPost)
