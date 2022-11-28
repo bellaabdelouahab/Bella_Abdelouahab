@@ -18,6 +18,8 @@ async function makePost(req,res){
 }
 async function addPost(req,res){
    //Créer un nouveau post dans myBlogdb et rediriger le client vers /
+   const post=await Post.create(req.body)
+    res.redirect("/")
 }
 async function editPost(req,res){
     //Recupérer un post definie par son _id et renvoyer au client editPost.pug avec les donnée de ce post
