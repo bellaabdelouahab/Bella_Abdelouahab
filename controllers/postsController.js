@@ -23,6 +23,9 @@ async function addPost(req,res){
 }
 async function editPost(req,res){
     //Recupérer un post definie par son _id et renvoyer au client editPost.pug avec les donnée de ce post
+    const post=await Post.findById(req.params.id)
+    console.log(req.params.id);
+    res.render("editPost",{post})
 }
 async function updatePost(req,res){
     //metre à jour un post et rediriger le client vers ce post

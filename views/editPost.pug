@@ -15,14 +15,26 @@ header Notre Blog
     i.icon-home
 section
   p Nouvau post
-  form(action='/' method='POST')
-    label Titre
-    input(type='text' name='titre' placeholder='Titre' value="")
-    label Auteur
-    input(type='text' name='auteur' placeholder='Auteur' value='')
-    label R&eacute;sum&eacute;
-    textarea(name='resume' rows='2') 
-    label Contenu -HTML- 
-    textarea(name='content' rows='12')
-    | 
-    input(type='submit' value='Enregistrer')
+  if post
+    form(action='/post/update/'+post.id method='POST')
+        label Titre
+        input(type='text' name='titre' placeholder='Titre' value=post.titre)
+        label Auteur
+        input(type='text' name='auteur' placeholder='Auteur' value=post.auteur)
+        label R&eacute;sum&eacute;
+        textarea(name='resume' rows='2') #{post.resume}
+        label Contenu -HTML- 
+        textarea(name='content' rows='12')| #{post.content}
+        input(type='submit' value='Enregistrer')
+  else
+    form(action='/' method='POST')
+        label Titre
+        input(type='text' name='titre' placeholder='Titre' value="")
+        label Auteur
+        input(type='text' name='auteur' placeholder='Auteur' value='')
+        label R&eacute;sum&eacute;
+        textarea(name='resume' rows='2') 
+        label Contenu -HTML- 
+        textarea(name='content' rows='12')
+        | 
+        input(type='submit' value='Enregistrer')
