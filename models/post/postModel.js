@@ -31,4 +31,5 @@ const postSchema=mongoose.Schema({
 
 //créer et exporter un Modéle Post
 
-module.exports=mongoose.model("Post",postSchema)
+const Post=mongoose.model("Post",postSchema)
+module.exports=Post
