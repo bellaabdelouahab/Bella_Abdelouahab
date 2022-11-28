@@ -17,7 +17,9 @@ header Our Blog
     i.icon-plus-sign(style='color: #5f5f5f;')
 .home
   a(href='/')
+    | #{user.username}
     i.icon-home(style='font-size: 2em;color: #5f5f5f;')
+    
 each post in posts
   section
     .titre

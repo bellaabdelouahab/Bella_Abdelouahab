@@ -4,7 +4,9 @@ const Post=require("../models/post/postModel")
 async function getPosts(req,res){
    //Recupérer tous les posts dans myBlogdb et envoyer index.pug au client
    const posts=await Post.find()
-    res.render("index",{posts})
+    // get current user authenticated
+    const user = req.session.user;
+    res.render("index",{posts,user})
 }
  
 

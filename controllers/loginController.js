@@ -47,9 +47,7 @@ const loginpost = async(req, res) => {
     }
 }
 const logout = async(req, res) => {
-    // delete user from session
-    req.session.user = null;
-    res.redirect('/login');
+    
 }
 
 module.exports= {
