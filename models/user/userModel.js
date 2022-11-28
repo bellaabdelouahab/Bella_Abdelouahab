@@ -16,5 +16,24 @@ const UserSchema = new Schema({
   },
 }, { timestamps: true });
 
+
+
+UserSchema.statics.login = async function (username, password) {
+  const user = await this.findOne({username});
+  if (user) {
+    const auth = await user.comparePassword(password);
+    if (auth) {
+      return user;
+    }
+    throw Error('Incorrect password');
+  }
+  throw Error("Incorrect username or password");
+};
+UserSchema.methods.comparePassword = async function (password) {
+  const user = this;
+  return password === user.password;
+};
+
+
 const User = mongoose.model('User', UserSchema);
 module.exports = User;

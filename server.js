@@ -1,7 +1,7 @@
 //requirements
 const app = require('./app')
 const db=require('mongoose')
-require('dotenv').config()
+
 //dfinition du moteur de template
 app.set('view engine', 'pug')
 
